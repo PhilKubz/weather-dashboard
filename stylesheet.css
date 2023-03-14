@@ -1,3 +1,50 @@
+
 .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: purple;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+}
+
+.overallContainer {
+    display: flex;
+    display: block;
+    flex-direction: row;
+    border: solid green;
+}
+
+
+
+.citySearchContainer {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    border: solid red;
+    margin-right: 70%;
+    padding: 10px;
+}
+
+#city-input {
+    width: 100%;
+}
+
+.search-button {
+    width: 80px;
+}
+
+.city-buttons {
+
+}
+
+
+.resultsContainer {
+    display: flex;
+    border: solid blue;
+    margin-left: 30%;
 }
