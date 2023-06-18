@@ -17,38 +17,39 @@ function fetchWeatherData(city) {
 }
 
 function fetchForecastData(lat, lon) {
-  const forecastAPIURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly&appid=${API_KEY}`;
+  const forecastAPIURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
 
   fetch(forecastAPIURL)
     .then(response => response.json())
     .then(data => {
-      displayForecast(data.daily);
+      displayForecast(data.list);
     })
     .catch(error => {
       console.error(error);
     });
 }
 
-function displayCurrentWeather(data) {
+
+function displayCurrentWeather(weatherData) {
   const currentWeatherContainer = document.getElementById('current-weather');
   currentWeatherContainer.innerHTML = '';
 
-  const cityName = data.name;
+  const cityName = weatherData.name;
   const date = new Date().toLocaleDateString();
-  const icon = data.weather[0].icon;
-  const temperatureCelsius = Math.round(data.main.temp - 273.15); // Temperature in Celsius
-  const temperatureFahrenheit = Math.round((temperatureCelsius * 9) / 5 + 32); // Temperature in Fahrenheit
-  const humidity = data.main.humidity;
-  const windSpeed = data.wind.speed;
+  const icon = weatherData.weather[0].icon;
+  const temperatureCelsius = Math.round(weatherData.main.temp - 273.15);
+  const temperatureFahrenheit = Math.round((temperatureCelsius * 9) / 5 + 32);
+  const humidity = weatherData.main.humidity;
+  const windSpeed = weatherData.wind.speed;
+
+  const iconURL = `http://openweathermap.org/img/w/${icon}.png`;
 
   const currentWeatherHTML = `
-    <div class="weather-item">
-      <h3>${cityName}</h3>
-      <p>Date: ${date}</p>
-      <p>Temperature: ${temperatureCelsius}°C / ${temperatureFahrenheit}°F</p>
-      <p>Humidity: ${humidity}%</p>
-      <p>Wind Speed: ${windSpeed} m/s</p>
-    </div>
+    <h2>${cityName} (${date})</h2>
+    <img src="${iconURL}" alt="Weather Icon">
+    <p>Temperature: ${temperatureCelsius}°C / ${temperatureFahrenheit}°F</p>
+    <p>Humidity: ${humidity}%</p>
+    <p>Wind Speed: ${windSpeed} m/s</p>
   `;
 
   currentWeatherContainer.innerHTML = currentWeatherHTML;
@@ -58,17 +59,30 @@ function displayForecast(forecastData) {
   const forecastContainer = document.getElementById('forecast');
   forecastContainer.innerHTML = '';
 
-  forecastData.forEach(day => {
-    const date = new Date(day.dt * 1000).toLocaleDateString();
-    const icon = day.weather[0].icon;
-    const temperatureCelsius = Math.round(day.temp.day - 273.15); // Temperature in Celsius
-    const temperatureFahrenheit = Math.round((temperatureCelsius * 9) / 5 + 32); // Temperature in Fahrenheit
-    const humidity = day.humidity;
-    const windSpeed = day.wind_speed;
+  const currentDate = new Date();
+  const nextFiveDays = [];
+
+  forecastData.forEach(forecast => {
+    const forecastDate = new Date(forecast.dt_txt);
+    if (forecastDate.getDate() > currentDate.getDate()) {
+      nextFiveDays.push(forecast);
+    }
+  });
+
+  nextFiveDays.slice(0, 5).forEach(forecast => {
+    const date = new Date(forecast.dt_txt).toLocaleDateString();
+    const icon = forecast.weather[0].icon;
+    const temperatureCelsius = Math.round(forecast.main.temp - 273.15);
+    const temperatureFahrenheit = Math.round((temperatureCelsius * 9) / 5 + 32);
+    const humidity = forecast.main.humidity;
+    const windSpeed = forecast.wind.speed;
+
+    const iconURL = `http://openweathermap.org/img/w/${icon}.png`;
 
     const forecastItemHTML = `
       <div class="weather-item">
         <h3>${date}</h3>
+        <img src="${iconURL}" alt="Weather Icon">
         <p>Temperature: ${temperatureCelsius}°C / ${temperatureFahrenheit}°F</p>
         <p>Humidity: ${humidity}%</p>
         <p>Wind Speed: ${windSpeed} m/s</p>
@@ -78,6 +92,7 @@ function displayForecast(forecastData) {
     forecastContainer.innerHTML += forecastItemHTML;
   });
 }
+
 
 function storeSearchHistory(city) {
   let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
