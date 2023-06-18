@@ -7,38 +7,49 @@
   <title>Weather Dashboard</title>
   <!-- CSS stylesheet link -->
   <link rel="stylesheet" href="./stylesheet.css">
-  <!-- JavaScript link -->
-  <script src="./script.js"></script>
 </head>
-
 
 <body>
   <div class="overallContainer">
-
     <div class="nav-bar">
       <h1>Weather Dashboard</h1>
     </div>
 
-    <div class="citySearchContainer">
-      <form id="city-form">
-        <label for="city-input">Enter a city:</label>
-        <input type="text" id="city-input" name="city" required>
-        <input type="submit" class="search-button" value="Search">
-          <div class="city-buttons">
-          <button type="button" onclick="fillCity('Eugene')">Eugene</button>
-          <button type="button" onclick="fillCity('Chicago')">Chicago</button>
-          <button type="button" onclick="fillCity('San Diego')">San Diego</button>
-          </div>
-      </form>
+    <div class="main-container">
+      <div class="sidebar">
+        <div class="citySearchContainer">
+          <form id="city-form">
+            <label for="city-input">Enter a city:</label>
+            <input type="text" id="city-input" name="city" required>
+            <input type="submit" class="search-button" value="Search">
+            <div class="city-buttons">
+              <button type="button" onclick="fillCity('Eugene')" class="search-history-button">Eugene</button>
+              <button type="button" onclick="fillCity('Chicago')" class="search-history-button">Chicago</button>
+              <button type="button" onclick="fillCity('San Diego')" class="search-history-button">San Diego</button>
+            </div>
+          </form>
+        </div>
 
+        <div class="search-history-container">
+          <h2 class="section-title">Search History</h2>
+          <div id="search-history-list" class="city-buttons"></div>
+        </div>
+      </div>
 
+      <div class="content-container">
+        <div class="current-weather-container">
+          <h2 class="section-title">Current Weather</h2>
+          <div id="current-weather"></div>
+        </div>
+        <div class="forecast-container">
+          <h2 class="section-title">5-Day Forecast</h2>
+          <div id="forecast"></div>
+        </div>
+      </div>
     </div>
-    
-    <div class="resultsContainer">
-
-    </div>
-
   </div>
-     
+
+  <script src="./script.js"></script>
 </body>
+
 </html>

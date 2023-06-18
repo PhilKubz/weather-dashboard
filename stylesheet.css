@@ -1,50 +1,67 @@
-
 .nav-bar {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: purple;
     color: white;
-}
-
-h1 {
+    height: 50px;
+  }
+  
+  h1 {
     text-align: center;
-}
-
-.overallContainer {
+  }
+  
+  .overallContainer {
     display: flex;
-    display: block;
+    flex-direction: column;
+  }
+  
+  .main-container {
+    display: flex;
     flex-direction: row;
-    border: solid green;
-}
-
-
-
-.citySearchContainer {
+    flex: 1;
+  }
+  
+  .sidebar {
     display: flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items: center;
-    border: solid red;
-    margin-right: 70%;
+    flex-direction: column;
+    width: 30%;
     padding: 10px;
-}
-
-#city-input {
-    width: 100%;
-}
-
-.search-button {
-    width: 80px;
-}
-
-.city-buttons {
-
-}
-
-
-.resultsContainer {
+  }
+  
+  .citySearchContainer {
+    margin-bottom: 20px;
+  }
+  
+  .content-container {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .city-buttons {
     display: flex;
-    border: solid blue;
-    margin-left: 30%;
-}
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .resultsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Search History Buttons */
+.search-history-button {
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    width: 75%;
+    box-sizing: border-box;
+  }
+  
+  .search-history-button:hover {
+    background-color: #ec82e4;
+  }
+  
