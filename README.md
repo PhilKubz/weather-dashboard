@@ -1,10 +1,13 @@
 # Weather Dashboard
 
-Weather Dashboard is a web application that allows users to search for the current weather and 5-day forecast of a city.
-
 ## Summary
 
-Weather Dashboard is a user-friendly web application that provides real-time weather information. Users can search for any city and retrieve the current weather details, including temperature, humidity, and wind speed. Additionally, the application displays a 5-day forecast, allowing users to plan their activities accordingly.
+Weather Dashboard is a user-friendly, fully responsive web application that provides real-time weather information. Users may search for a desired city and find out current weather and a 5 day forecast.
+
+## Screenshot
+
+![_C__Users_phili_bootcamp_weather-dashboard_index html_city=San+Diego (2)](https://github.com/PhilKubz/test-project/assets/122698773/8928e5ee-0759-4cb4-b082-2af3f26b64c0)
+
 
 
 ## Table of Contents
@@ -13,6 +16,8 @@ Weather Dashboard is a user-friendly web application that provides real-time wea
 - [Features](#features)
 - [Usage](#usage)
 - [License](#license)
+- [Contact](#contact)
+- [Deployment](#deployment)
 
 
 ## Description
@@ -37,13 +42,29 @@ To use the Weather Dashboard application, follow these steps:
 
 2. In the city search input field, enter the name of a city you want to retrieve weather information, then click "search"
 
-5. The application will display the current weather details and the 5-day forecast for the searched city.
+3. The application will display the current weather details and the 5-day forecast for the searched city
 
-6. To view the weather for a previously searched city, click on the city name in the search history section.
+4. To view the weather for a previously searched city, click on the city name (each search history city is a button!) in the search history section
 
-7. Explore the application and utilize the weather information to plan your activities accordingly.
+5. In order to clear local history, users may go to Chomre Devtools -> Application -> Local Storage
+
+5. Make use of this application for any event planning or to get a weather update of your area or another area of interest
 
 
 ## License
 
-This project is licensed under the MIT License. The MIT License is a permissive open-source license that allows you to use, modify, and distribute the code for both commercial and non-commercial purposes. For more information, please refer to the [LICENSE](LICENSE) file.
+This project is licensed under the MIT License.
+
+
+## Deployment
+
+[Weather Dashboard](link here)
+
+
+## Contact
+
+Name: Philip Kubisz
+
+Email: philip.kubisz@gmail.com
+
+[GitHub Profile](https://github.com/PhilKubz)
