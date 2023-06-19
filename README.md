@@ -46,7 +46,7 @@ To use the Weather Dashboard application, follow these steps:
 
 4. To view the weather for a previously searched city, click on the city name (each search history city is a button!) in the search history section
 
-5. In order to clear local history, users may go to Chomre Devtools -> Application -> Local Storage
+5. In order to clear local history, users may go to Chrome Devtools -> Application -> Local Storage -> Delete local storage
 
 5. Make use of this application for any event planning or to get a weather update of your area or another area of interest
 
@@ -58,7 +58,9 @@ This project is licensed under the MIT License.
 
 ## Deployment
 
-[Weather Dashboard](link here)
+Click on the link below to view the live deployed application:
+
+[Weather Dashboard](https://philkubz.github.io/weather-dashboard/)
 
 
 ## Contact
