@@ -122,10 +122,6 @@ function displaySearchHistory(searchHistory) {
   });
 }
 
-function fillCity(city) {
-  const cityInput = document.getElementById('city-input');
-  cityInput.value = city;
-}
 
 // Event Listeners
 document.getElementById('city-form').addEventListener('submit', function(event) {
